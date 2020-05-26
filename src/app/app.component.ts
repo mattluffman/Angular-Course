@@ -8,7 +8,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
     serverElements = [{type: 'server', name: 'testserver', content: 'this is just a test'}];
 
-    onServerAdded(serverData: { serverName: string, serverContent: string }) {
+    onServerAdded(serverData: { serverName: string, serverContent: string }): void {
         console.log("in onServerAdded()");
         console.log(serverData);
         this.serverElements.push({
@@ -18,7 +18,7 @@ export class AppComponent {
         });
     }
 
-    onBlueprintAdded(blueprintData: { serverName: string, serverContent: string }) {
+    onBlueprintAdded(blueprintData: { serverName: string, serverContent: string }): void {
         console.log("in onBlueprintAdded()");
         console.log(blueprintData);
         this.serverElements.push({
@@ -26,5 +26,13 @@ export class AppComponent {
             name: blueprintData.serverName,
             content: blueprintData.serverContent
         });
+    }
+
+    onChangeFirst(): void {
+        this.serverElements[0].name = 'Changed';
+    }
+
+    onDestroyFirst() {
+        this.serverElements.splice(0, 1);
     }
 }
