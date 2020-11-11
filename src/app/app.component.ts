@@ -24,4 +24,9 @@ export class AppComponent {
 
         document.querySelector('#footer').scrollIntoView({behavior: "smooth"});
     }
+
+    reset(): void {
+        this.oddNumbers = [];
+        this.evenNumbers = [];
+    }
 }
