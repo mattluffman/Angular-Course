@@ -1,5 +1,15 @@
+/*
+initial submission, looks really cool but trying to get Ealges colors
 p {
     background-color: forestgreen;
     font-weight: bold;
     padding: 1px 0 1px 5px;
+}
+ */
+
+/* eagles colors */
+p {
+    font-weight: bold;
+    padding: 1px 0 1px 5px;
+    border: 1px solid black;
 }
