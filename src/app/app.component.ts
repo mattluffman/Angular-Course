@@ -16,7 +16,7 @@ export class AppComponent {
 
     processNewComponent(eventNumber: number) {
         // if odd, create an odd component, even otherwise
-        if (eventNumber % 2 == 1) {
+        if (eventNumber % 2 === 1) {
             this.oddNumbers.push(eventNumber);
         } else {
             this.evenNumbers.push(eventNumber);

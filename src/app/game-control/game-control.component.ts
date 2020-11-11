@@ -25,8 +25,8 @@ export class GameControlComponent implements OnInit {
         console.log(`interval id: ${this.interval}`);
     }
 
-    onStop() {
-        console.log(`stopping game at ${this.seconds}`);
+    onPause() {
+        console.log(`pausing game at ${this.seconds}`);
         clearInterval(this.interval);
         // not resetting seconds because when you restart it doesn't clear out all of
         // the existing components without an extra event
