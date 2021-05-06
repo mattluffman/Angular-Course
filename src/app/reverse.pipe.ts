@@ -24,4 +24,11 @@ export class ReversePipe implements PipeTransform {
 
         return reverse;
     }
+
+    /**
+     * instructor solution
+     */
+    /*transform(value: any): any {
+        return value.split('').reverse().join('');
+    }*/
 }
