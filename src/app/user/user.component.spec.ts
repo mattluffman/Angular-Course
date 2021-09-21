@@ -2,6 +2,7 @@
 
 import {TestBed} from '@angular/core/testing';
 import {UserComponent} from './user.component';
+import {UserService} from './user.service';
 
 describe('Component: User', () => {
     beforeEach(() => {
@@ -10,6 +11,21 @@ describe('Component: User', () => {
         });
     });
 
+    it('should create teh app', function () {
+        const fixture = TestBed.createComponent(UserComponent);
+        const app = fixture.debugElement.componentInstance;
+        expect(app).toBeTruthy();
+    });
+
+    it('should use the user name from the service', function () {
+        const fixture = TestBed.createComponent(UserComponent);
+        const app = fixture.debugElement.componentInstance;
+        // example of how to get a service from the test bed
+        const userService = fixture.debugElement.injector.get(UserService);
+        expect(userService.user.name).toEqual(app.user.name);
+    });
+
+    /* tests that were downloaded with the final solution */
     /*it('should create the app', () => {
         const fixture = TestBed.createComponent(UserComponent);
         const app = fixture.debugElement.componentInstance;
