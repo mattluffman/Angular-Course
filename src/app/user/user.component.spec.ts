@@ -22,7 +22,26 @@ describe('Component: User', () => {
         const app = fixture.debugElement.componentInstance;
         // example of how to get a service from the test bed
         const userService = fixture.debugElement.injector.get(UserService);
+        fixture.detectChanges(); // needed to be updated because the state of the user changes after ngOnInit()
         expect(userService.user.name).toEqual(app.user.name);
+    });
+
+    it('should display the user name if the user is logged in', function () {
+        const fixture = TestBed.createComponent(UserComponent);
+        const app = fixture.debugElement.componentInstance;
+        app.isLoggedIn = true;
+        fixture.detectChanges();
+        const compiled = fixture.debugElement.nativeElement;
+        expect(compiled.querySelector('p').textContent).toContain(app.user.name);
+    });
+
+    it('should\'t display the user name if the user is not logged in', function () {
+        const fixture = TestBed.createComponent(UserComponent);
+        const app = fixture.debugElement.componentInstance;
+        fixture.detectChanges();
+        const compiled = fixture.debugElement.nativeElement;
+        expect(compiled.querySelector('p').textContent).not.toContain(app.user.name);
+        expect(compiled.querySelector('p').textContent).toContain('Please log in first');
     });
 
     /* tests that were downloaded with the final solution */
